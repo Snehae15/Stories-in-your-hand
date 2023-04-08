@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide"> COMMENT & RATE</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="/adminviewposts" class="w3-bar-item w3-button"><i class="fa fa-user"></i>VIEW ALL POST</a>
+      <a href="/viewcomment" class="w3-bar-item w3-button"><i class="fa fa-heart"></i>VIEW FEEDBACK & RATE</a>
+      <a href="/" class="w3-bar-item w3-button"><i class="fa fa-user"></i>SIGN OUT</a>
+
+    </div>
+<title>stories in your hand</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("static/images/background.jfif");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
+</head><body>
+<form id="form1" name="form1" method="post" action="view complaints and send reply">
+  <table class="table">
+    <tr>
+      <th>username</th>
+      <th>email</th>
+      <th>post</th>
+    </tr>&nbsp;
+      {% for i in data %}
+    <tr>
+        <td>{{ loop.index }}&nbsp;</td>
+        <td>{{ i['username'] }}</td>
+        <td>{{ i['email'] }}</td>
+        <td>{{ i['post'] }}</td>
+    </tr>
+      {% endfor %}
+
+
+  </table>
+</form>
+</body>
+</html>

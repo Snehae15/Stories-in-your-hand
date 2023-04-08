@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+<link rel="icon" href="data:,">
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">VIEW ALL POST </a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="/adminviewposts" class="w3-bar-item w3-button"><i class="fa fa-user"></i>VIEW ALL POST</a>
+      <a href="/view_rating" class="w3-bar-item w3-button"><i class="fa fa-heart"></i>VIEW FEEDBACK & RATE</a>
+      <a href="/" class="w3-bar-item w3-button"><i class="fa fa-user"></i>SIGN OUT</a>
+
+    </div></div>
+<title>stories in your hand</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("static/images/background.jfif");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+.button {
+  padding: 10px 20px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: light blue}
+
+.button:active {
+  background-color: pink;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+</style>
+</head>
+</div><body>
+
+  <div class="w3-row-padding" style="margin-top:64px">
+   {% for i in data %} <div class="w3-col l3 m6">
+      <a href="/{{ i['postname'] }}"><img src="{{ i['image'] }}" width="150" height="300" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A microphone">
+</a>
+<h3><P><b>Name of post:{{ i['postname'] }}</b></P>
+    <b><p>Username:{{ i['username'] }}</b></p>
+      <b><p>Date of post:{{ i['date'] }}</b></P>
+    <button class="button"><a href="/user_delete_post/{{ i['username'] }}">Delete</a></button><br>
+    </div>{% endfor %}
+      </form><br>
+</body>
+
+
+<!-- Work Section -->
+</html>

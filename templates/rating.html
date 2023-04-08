@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="static/css/main.css" rel="stylesheet" media="all">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+body{
+background: white;
+color: white;
+margin: 100px auto;
+}
+
+.rating {
+display: flex;
+flex-direction: row-reverse;
+justify-content: center;
+}
+
+
+.rating > input{ display:none;}
+
+.rating > label {
+position: relative;
+width: 1.1em;
+font-size: 15vw;
+color: #FFD700;
+cursor: pointer;
+}
+
+.rating > label::before{
+content: "\2605";
+position: absolute;
+opacity: 0;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+opacity: 1 !important;
+}
+
+.rating > input:checked ~ label:before{
+opacity:1;
+}
+
+.rating:hover > input:checked ~ label:before{ opacity: 0.4; }
+
+.input {
+  background-color: #303245;
+  border-radius: 13px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 10px 2px 0;
+  width: 50%;
+}
+.submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  // outline: 0;
+  text-align: center;
+  width: 50%;
+}
+
+.submit:active {
+  background-color: #06b;
+}
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+.placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+  </style>
+</head>
+<body>
+<form method="POST" action="/add_rating" enctype="multipart/form-data">
+<div class="rating">
+    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+  </div>
+    <center>
+    <div class="input-container ic1">
+    <textarea class="input" id="a" name="review" placeholder="Review" required></textarea><br><br>
+    <input type="text" class="input" name="email" placeholder="email" required><br><br>
+<label for="1"><font color="black">Postname</label><br>
+    <input type="text" id="1" class="input" name="postname" value="{{ data['postname'] }}" readonly><br><br>
+<label for="2">Username</label><br>
+    <input type="text" id="2" class="input" name="username" value="{{ data['username'] }}" readonly>
+                            <button type="submit" class="submit">submit</button>
+    </center></div>
+<!--<input type="date" name="date" placeholder="date">-->
+</form>
+</body>
+</html>

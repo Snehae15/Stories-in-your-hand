@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<title>stories in your hand</title>
+    <link rel="icon" href="data:,">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("static/images/background.jfif");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+.submit {
+  background-color: #D79FF3;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  // outline: 0;
+  text-align: center;
+  width: 50%;
+}
+
+.submit:active {
+  background-color: #BA60E7;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+
+
+
+
+  <div>
+    <div><center>
+    <h3> <b><p>Name of post:{{ data['postname'] }}</b></P>
+        <P><b>Username:{{ data['username'] }}</b></p>
+
+        <b><P>Type:{{ data['type'] }}</b></P>
+<!--        <b><P>Category:{{ data['category'] }}</b></P>-->
+        <img src="{{ data['image'] }}" width="300" height="300" onclick="onClick(this)" class="w3-hover-opacity"><br><br>
+        <b>{{ data['content'] }}<br>
+             <a href="/rating/{{ data['postname'] }}"><button type="submit" class="submit"> RATING</button></a></center>
+    </div></div>
+    <!-- Modal for full size images on click-->
+        {% for i in data1 %}
+<b><p>Email: {{ i['email'] }}</b> &nbsp;
+<b>Rating: {{ i['rating'] }}/5</b> &nbsp;
+<b>Review:{{ i['review'] }}</b>
+        </P>{% endfor %}
+</body>
+
+
+<!-- Work Section -->
+</html>

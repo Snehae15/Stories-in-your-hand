@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+
+$(document).ready(function(){
+
+    $("#post").keyup(function() {
+
+        if ($(this).val() != 'default') {
+
+            var br = $('#post').val();
+
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/checkpost",
+                data: { po: br },
+
+                success: function(response) {
+                response=response.replace('"',"").replace('"',"")
+                document.getElementById("p").innerHTML=response
+
+
+
+                }
+            });
+        }
+
+    });
+
+
+
+ $("#phone").keyup(function() {
+
+        if ($(this).val() != 'default') {
+
+            var br = $('#phone').val();
+
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/checkphone1",
+                data: { ph: br },
+
+                success: function(response) {
+                response=response.replace('"',"").replace('"',"")
+                document.getElementById("p").innerHTML=response
+
+
+
+                }
+            });
+        }
+
+    });
+});
+
+
+
+
+$(document).ready(function(){
+
+    $("#email").keyup(function() {
+
+        if ($(this).val() != 'default') {
+
+            var br = $('#email').val();
+
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/checkemail1",
+                data: { em: br },
+
+                success: function(response) {
+                response=response.replace('"',"").replace('"',"")
+                document.getElementById("e").innerHTML=response
+
+
+
+                }
+            });
+        }
+
+    });
+
+
+
+    $("#username").keyup(function() {
+
+        if ($(this).val() != 'default') {
+
+            var br = $('#username').val();
+
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/checkusername",
+                data: { un: br },
+
+                success: function(response) {
+                response=response.replace('"',"").replace('"',"")
+                document.getElementById("u").innerHTML=response
+
+
+
+                }
+            });
+        }
+
+    });
+
+
+ $("#phone").keyup(function() {
+
+        if ($(this).val() != 'default') {
+
+            var br = $('#phone').val();
+
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/checkphone1",
+                data: { ph: br },
+
+                success: function(response) {
+                response=response.replace('"',"").replace('"',"")
+                document.getElementById("p").innerHTML=response
+
+
+
+                }
+            });
+        }
+
+    });
+
+});
+</script>
+
+
+    <link rel="icon" href="data:,">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("static/images/background.jfif");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+       <div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">ADD POST </a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="/viewposts" class="w3-bar-item w3-button"><i class="fa fa-user"></i>VIEW ALL POST</a>
+      <a href="/viewmyposts" class="w3-bar-item w3-button"><i class="fa fa-pencil"></i>VIEW MY POST</a>
+      <a href="/view_rating" class="w3-bar-item w3-button"><i class="fa fa-heart"></i>VIEW FEEDBACK & RATE</a>
+      <a href="/logout" class="w3-bar-item w3-button"><i class="fa fa-user"></i>SIGN OUT</a>
+    </div></div></div>
+
+    <!-- Title Page-->
+    <title>Add posts</title>
+
+    <!-- Icons font CSS-->
+    <link href="static/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="static/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="static/css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Add Post</h2>
+                    <form method="POST" action="/addpost1" enctype="multipart/form-data">
+
+
+                        <div class="row row-space">
+                            <div class="col-2">
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Post name" id="post" name="poname" pattern="[A-Z a-z.]{3,25}">
+                            <div id="p"></div>
+                        </div></div></div>
+
+
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="Category" name="category">
+                                </div>
+                            </div></div>
+
+                            <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-2" type="text" placeholder="Type" name="type">
+                                </div>
+                            </div></div>
+
+
+                            <div class="input-group">
+                            <input class="input--style-2" type="file" name="file">
+                        </div>
+
+                            <div class="row row-space">
+                            <div class="col-2">
+                            <div class="input-group">
+
+                        </div>
+                            </div></div>
+
+
+                        <textarea id="subject" name="content" rows="10" cols="50" placeholder="content" style="height:200px"></textarea>
+
+                        <div class="p-t-30"><br><br>
+                            <button class="btn btn--radius btn--green" type="submit">ADD POST</button>
+                        </div>
+                </div></div></div></div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="static/js/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="static/js/select2.min.js"></script>
+    <script src="static/js/moment.min.js"></script>
+    <script src="static/js/jquery-2.2.3.min.js - Copy.jsr/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="static/js/global.js"></script>
+
+</body>
+</html>
+<!-- end document-->
